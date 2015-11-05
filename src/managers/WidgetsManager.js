@@ -184,12 +184,11 @@ var EventsManager;
 
 		var sorterOpt = {'all': 
 							[
-							 	{"value": "score desc"},
-						        {"value": "object_production_date_earliest asc"},
-						        {"value": "object_production_date_earliest desc"},
-						        {"value": "artist_first_name asc"},
-						        {"value": "artist_first_name desc"},
-						        {"value": "last_update desc"}
+							 	{"value": "score desc"},						        
+						        {"value": "invnumber asc"},
+						        {"value": "invnumber desc"},
+						        {"value": "created desc"},
+                    {"value": "created asc"}
 						    ]};		
 		
 		Manager.addWidget(new AjaxSolr.SorterWidget({
@@ -255,7 +254,9 @@ var EventsManager;
 			template: Mustache.getTemplate('templates/detail.html')
 		}));
 		
-		//* Parts / Related widgets 		
+    
+		//* Parts / Related widgets
+    /* 		
 		var sub_partsWidget = new AjaxSolr.TeasersWidget({
 			id: 'parts',
 			target: '#components',
@@ -287,7 +288,7 @@ var EventsManager;
 			originalManager: getDetailManager,
 			original_subWidget: sub_originalWidget
 		}));	
-
+    */
 
 		//******************************
 		//** add event listeners

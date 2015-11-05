@@ -1,9 +1,9 @@
 {   
    "version":"1.002.02503 TEST BETA",
    "mode":"proxy min",   
-   "server":"http://solr-02.smk.dk:8080/solr/prod_SAFO/", 
-   "server_test":"http://csdev-seb:8180/solr-example/dev_SAFO/",      
-   "server_proxy":"http://solr.smk.dk:8080/proxySolrPHP/proxy.php",
+   "server_prod":"http://solr-02.smk.dk:8080/solr/prod_SAFO/", 
+   "server":"http://csdev-seb:8180/solr-example/dev_DAM/",      
+   "server_proxyxxx":"http://solr.smk.dk:8080/proxySolrPHP/proxy.php",
    "facets":{
       "advanced":[
          {
@@ -98,14 +98,7 @@
       ],
       "autocomplete":[
       	"id",
-      	"artist_name",
-      	"title_dk",
-      	"title_eng",
-      	"title_first",
-      	"proveniens",
-      	"materiale",
-      	"object_type_dk",
-      	"location_kks_kas"
+      	"invnumber"
       ]
    },
    "exposed":[
@@ -117,7 +110,7 @@
       "qf"
    ],
    
-   "fq_default":"",
+   "fq_default":"value:[* TO *] AND (type:.tif OR type:.jpg)",
    "fq_default_debug":"-(id:(*/*)) -(id:(*verso)) -(medium_image_url:[* TO *])",
    "fq_default_prod":"",
    
@@ -126,13 +119,13 @@
    "fl_options":{
       "default":"*, score",
       "detail":"*, score",
-      "list":"score, id, title_all, medium_image_url, title_first, artist_birth_dk, artist_death_dk, artist_natio_dk, artist_birth_en, artist_death_en, artist_natio_en, artist_name, artist_auth, copyright, location_name, location_kks_kas, object_production_date_text_dk, object_production_date_text_en",
+      "list":"score, id, invnumber, created, link, size, type, value",
       "related":"score, id, title_all, medium_image_url, title_first, artist_birth_dk, artist_death_dk, artist_natio_dk,  artist_birth_en, artist_death_en, artist_natio_en, artist_name, artist_auth, copyright, location_name, location_kks_kas, object_production_date_text_dk, object_production_date_text_en, related_id",
       "parts":"score, id, title_all, medium_image_url, title_first, artist_birth_dk, artist_death_dk, artist_natio_dk,  artist_birth_en, artist_death_en, artist_natio_en, artist_name, artist_auth, copyright, location_name, location_kks_kas, object_production_date_text_dk, object_production_date_text_en, multi_work_ref"
    },
    "qf_default":{
       "dk":{
-         "collectorExact1":"150",
+         "invnumber":"150",
          "collectorExact2":"30",
          "collectorExact3":"20"
       },

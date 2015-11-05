@@ -161,32 +161,9 @@
 		return sprintf('http://%s/%s', server, pluginPath);				
 	};	
 
-	common.getScaledPicture = function(fullsizePath, size, TYPO3_picture){								 
-
-		var pictureScaleServerPath = 'rs.smk.dk'; //'cspic.smk.dk:8080/SmkImageServer/rest/conversionservice/scaling'; //'cspic.smk.dk';
-		var TYPO3_server = 'http://www.smk.dk';
-		var Picture_server = 'http://cspic.smk.dk';
-		//var pictureAdresse = TYPO3_picture == true ? sprintf('%s/%s', TYPO3_server, fullsizePath) : sprintf('%s/%s', Picture_server, common.getLocation(fullsizePath).pathname.replace(/^\/|/g, ''));
-		var pictureAdresse = TYPO3_picture == true ? sprintf('%s/%s', TYPO3_server, fullsizePath) : sprintf('%s', common.getLocation(fullsizePath).pathname.replace(/^\/|/g, ''));
-		var width = '';
-
-		switch(size){
-		case "small":		 			  			  			  
-			width = '88';					  			  			  
-			break;
-		case "medium":		 			  			  			  
-			width = '198';					  			  			  
-			break;
-		case "large":		 			  			  			  
-			width = '418';					  			  			  
-			break;
-		default:		    			  			   							  
-			width = '88';		  	 		  	  
-		break;		  
-		};	
-
-		return sprintf('http://%s/?pic=%s&mode=width&width=%s', pictureScaleServerPath, pictureAdresse, width);
-		//return (sprintf('http://%s?width=%s&image=%s', pictureScaleServerPath, width, pictureAdresse));
+	common.getScaledPicture = function(id, size){								 	
+		var dam_server = 'http://172.20.1.203:4000/imgsrv/get/%s/%s';
+		return sprintf(dam_server, id, size);		
 	};
 
 	common.getLocation = function(href) {

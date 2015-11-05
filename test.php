@@ -2,7 +2,7 @@
 <html>
   <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">  
-  <title>SMK Søg i Samling</title>
+  <title>SMK | DAM prototype</title>
   
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -77,6 +77,10 @@
 	<link rel="stylesheet" type="text/css" href="css/app.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/smk_modif.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+  
+  <link rel="stylesheet" type="text/css" href="js/supplier/iip/css/site.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="js/supplier/iip/css/content.css" media="all" />
+
 
 </head>
   <body>

@@ -344,6 +344,10 @@ a.divLink {
   margin-bottom: 0em;  
 }
 
+.matrix-equalized .matrix-tile {
+    height: 300px;  
+}
+
 /*
 .matrix-tile-header h2 a {
   max-height: 2.50em;  

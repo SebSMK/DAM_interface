@@ -27,10 +27,16 @@
 			</a>
 						
 			{{#image_full_path}}
-			<a class="inline-gallery-view-full fancybox" href="{{{image_full_path}}}">
-				{{{fullsizeText}}}
-			<i></i>
-			</a>
+      <div class="toolset object">
+       			<div class="tool-img-zoom">
+              <a class="inline-gallery-view-full" href="{{{current_url}}}">
+        				{{{fullsizeText}}}
+        			<i></i>
+        			</a>       
+            </div>                
+   		</div>
+      
+			
 			{{/image_full_path}}
 			{{/image}}
 

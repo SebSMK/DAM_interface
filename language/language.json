@@ -11,8 +11,8 @@
       "teaser_copyright_def":	"CC0 | Public Domain",
       "copyright_link":			"http://creativecommons.org/publicdomain/zero/1.0/",
       
-      "general_title":			"Søg i Samlingen",
-      "site_title":				"SMK | Søg i Samlingen",
+      "general_title":			"Digital Asset Management",
+      "site_title":				"SMK | DAM prototype",
 
 	  "adv_artist_column_title": 	"kunstner | producent",
       "adv_artwork_column_title": 	"værk",
@@ -285,9 +285,10 @@
 	  "sorter_score desc":		"relevans",
 	  "sorter_object_production_date_earliest desc":	"datering (nyeste først)",
 	  "sorter_object_production_date_earliest asc":		"datering (ældste først)",
-	  "sorter_artist_first_name desc":		"navn (Å to A)",
-	  "sorter_artist_first_name asc":		"navn (A to Å)",
-	  "sorter_last_update desc":	"sidst opdateret",	
+	  "sorter_invnumber desc":		"navn (Å to A)",
+	  "sorter_invnumber asc":		"navn (A to Å)",
+	  "sorter_created desc":	"sidst optaget",
+    "sorter_created asc":	"først optaget",	
 	  
 	  "sorter_last_updated":	"sidst opdateret",
 	  

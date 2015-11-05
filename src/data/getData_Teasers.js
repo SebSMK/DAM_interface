@@ -20,11 +20,9 @@
 			var data =  {
 					url: this.getDetailUrl(doc),
 					
-					media:{
-						title: getData_Common.getFirstTitle(doc),	
-						alt: getData_Common.getMedia_alt(doc),
+					media:{													
 						image: getData_Common.getMedia_image(doc, 'medium'),
-						no_image: doc.medium_image_url === undefined ? true : false,
+						no_image: doc.value === undefined ? true : false,
 						copyright: getData_Common.getMedia_copyright(doc, this.caller),	
 						copyright_text_cc0: this.caller.manager.translator.getLabel('teaser_copyright_def'),
 						img_id: doc.id,
@@ -32,13 +30,12 @@
 						
 					},
 					
-					info:{
-						producent_kunster: this.getListAllProducers(doc),																																
-						title_museum: getData_Common.getFirstTitle(doc), 															
-						datering_production_vaerkdatering:{'lab': smkCommon.firstCapital(this.caller.manager.translator.getLabel('teaser_date_lab')), 'value':getData_Common.getProduction_vaerkdatering(doc)},		
-						ident_invnummer: {'lab': smkCommon.firstCapital(this.caller.manager.translator.getLabel("list_reference")), 'value': getData_Common.getIdent_invnummer(doc)},	
-						location_location: smkCommon.firstCapital(getData_Common.getLocation_location(doc, this.caller)),
-						location_kks: {'lab': smkCommon.firstCapital(this.caller.manager.translator.getLabel("teaser_kks_location")), 'value': getData_Common.getLocation_location_kks(doc)},						
+					info:{																																					
+						title_museum: doc.invnumber, 															
+						datering_production_vaerkdatering: {lab: 'date created', value:doc.created} ,
+            ident_invnummer: {lab: 'type', value:doc.type} ,
+            size: {lab: 'original size', value:doc.size} ,
+            //path: {lab: 'loc.', value:doc.link} ,																				
 						url: this.getDetailUrl(doc)
 					},
 					

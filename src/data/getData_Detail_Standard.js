@@ -16,51 +16,44 @@
 		
 		this.get_data = function (doc){
 			var data =  {
-
+          id: doc.id,          
 					media:{
-						title: getData_Common.getFirstTitle(doc),	
-						alt: getData_Common.getMedia_alt(doc),
-						image: getData_Common.getMedia_image(doc, 'large'),						
-						image_full_path: doc.medium_image_url,
-						no_image: doc.medium_image_url === undefined ? true : false,
+						image: getData_Common.getMedia_image(doc, 'large'),
+						no_image: doc.value === undefined ? true : false,					
+						image_full_path: doc.value,						
 						no_image_text: this.caller.manager.translator.getLabel('detail_no_photo'),
 						copyright: getData_Common.getMedia_copyright(doc, this.caller),
 						copyright_text_cc0: this.caller.manager.translator.getLabel('detail_copyright_def'),
 						img_id:doc.id,
-						fullsizeText: this.caller.manager.translator.getLabel('detail_fullsize_lab') 
+						fullsizeText: this.caller.manager.translator.getLabel('detail_fullsize_lab'),
+            current_url: this.getCurrentUrl(doc)
 					},					
-					
+          
 					info:{
 						
 						ident_invnummer: {
-							key: this.caller.manager.translator.getLabel('detail_reference'),  
-							value: getData_Common.getIdent_invnummer(doc)
+							key: 'reference',  
+							value: doc.invnumber
 						},
-						
-						artist: this.getListAllProducers(doc),																																					
-						
-						title_museum: getData_Common.getFirstTitle(doc),
-						title_serie: this.getDetailSerieTitle(doc),	
-						title_serie_label: this.caller.manager.translator.getLabel('detail_title_serie'),
-						
+																																																
 						datering: {
-							key: this.caller.manager.translator.getLabel('detail_date'),  
-							value: getData_Common.getProduction_vaerkdatering(doc)
+							key: 'date created',  
+							value: doc.created
 						},
 						
 						technique: {
-							key: this.caller.manager.translator.getLabel('detail_technique'),  
-							value: getData_Common.getTechnique_technique(doc)
+							key: 'type',  
+							value: doc.type
 						},
 						
 						dim: {
-								key: this.caller.manager.translator.getLabel('detail_dimension'),			    	
-								dim : getData_Common.getTechnique_dimensions(doc).length > 0 ? getData_Common.getTechnique_dimensions(doc)[0].dim : null  
+								key: 'size',			    	
+								dim : doc.size  
 						},
 						
 						acq: {
-							key: this.caller.manager.translator.getLabel('detail_acquisition'),			    	
-							value: this.getDetailAcq(doc)														
+							key: 'path',			    	
+							value: doc.value														
 						},
 						
 						location: smkCommon.firstCapital(getData_Common.getLocation_location(doc, this.caller))
@@ -88,6 +81,15 @@
 //			return label;
 //		};
 		
+    this.getCurrentUrl = function(doc){									
+			var model = {};
+			model.q = doc.id;
+			model.view = 'detail';
+			model.lang = smkCommon.getCurrentLanguage();
+
+			return ModelManager.buildURLFromModel(model); 
+		};
+    
 		this.getDetailAcq = function(doc){
 			var method = smkCommon.isValidDataText(getData_Common.getErhverv_method(doc)) ? sprintf('%s', getData_Common.getErhverv_method(doc)) : "";
 			var source = smkCommon.isValidDataText(getData_Common.getErhverv_source(doc)) ? sprintf(' %s', getData_Common.getErhverv_source(doc)) : "";

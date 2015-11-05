@@ -968,7 +968,7 @@
 	};
 
 	getdatacommon.getMedia_image = function (doc, size){	  			
-		return doc.medium_image_url !== undefined ? smkCommon.getScaledPicture(doc.medium_image_url, size) : null;
+		return doc.value !== undefined ? smkCommon.getScaledPicture(doc.id, size) : null;
 	};
 
 	getdatacommon.getMedia_copyright = function (doc, caller){	  
@@ -1003,17 +1003,17 @@
 			'orig': 'original',
 			'tilsk': 'tilskrevet',
 			'tidl': 'tidl. tilskrevet',
-			'vaerksted': 'værksted',
-			'efterfoel': 'efterfølger',
+			'vaerksted': 'vAOrksted',
+			'efterfoel': 'efterfA�lger',
 			'efter': 'efter',
 			'inventor': 'inventor',
 			'skole': 'skole',
 			'stil': 'stil',
 			'kopi': 'kopi efter',
-			'efterfor': 'efter forlæg af',
+			'efterfor': 'efter forlAOg af',
 			'udgiver': 'udgiver',
 			'trykker': 'trykker',
-			'forfatter': 'forfatter/redaktør'								
+			'forfatter': 'forfatter/redaktA�r'								
 	};
 
 	getdatacommon.enumTitleTypes = {			
