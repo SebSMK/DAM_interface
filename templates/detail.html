@@ -15,6 +15,7 @@
             <div class="inline-gallery-main-image gallery__main {{#no_image}}matrix-tile-image-missing{{/no_image}}" {{#image}}src="{{image}}"{{/image}} title="{{title}}" img_id="{{img_id}}"><i></i></div>			           			
 
 			{{#image}}
+      
 			<a target="_blank" class="inline-gallery-copyright-show-hide {{#copyright.img_cc0}}cc0active{{/copyright.img_cc0}}" {{#copyright.img_cc0}} onclick="window.open('{{{copyright.link}}}')"{{/copyright.img_cc0}}>
 				{{#copyright.show}}
 					<i></i>
@@ -25,16 +26,28 @@
 					<i class = "cc0"></i>					
 				{{/copyright.img_cc0}}									
 			</a>
+      
+      
 						
 			{{#image_full_path}}
       <div class="toolset object">
        			<div class="tool-img-zoom">
               <a class="inline-gallery-view-full" href="{{{current_url}}}">
-        				{{{fullsizeText}}}
+        				Zoom
         			<i></i>
         			</a>       
             </div>                
-   		</div>
+   		</div> 
+      
+      <div class="toolset object">
+       			<div class="tool-img-down">
+              <a class="inline-gallery-down" href="{{{current_url}}}">
+        				Hi-res
+        			<i></i>
+        			</a>       
+            </div>
+            <iframe id="down_iframe" style="display:none;">                
+   		</div> 
       
 			
 			{{/image_full_path}}

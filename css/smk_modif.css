@@ -1,5 +1,25 @@
 @CHARSET "ISO-8859-1";
 
+.inline-gallery .inline-gallery-down {
+    background: rgba(0, 0, 0, 0) url("../images/down.png") no-repeat scroll right 5px;
+    bottom: 0;
+    color: #a2a2a5;
+    display: inline-block;
+    font-size: 0.8em;
+    height: 33px;
+    left: auto;
+    line-height: 31px;
+    position: absolute;
+    right: 93px;
+    text-indent: -70px;
+    width: 14px;
+
+}
+
+.inline-gallery .inline-gallery-down:hover {
+    color: #5f5f60;
+}
+
 .opaque > *:not(.generalspinner) { 
 	background-color:rgba(255, 255, 255);
 	opacity: 0.5; 
