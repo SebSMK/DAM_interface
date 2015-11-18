@@ -26,7 +26,8 @@
 						copyright_text_cc0: this.caller.manager.translator.getLabel('detail_copyright_def'),
 						img_id:doc.id,
 						fullsizeText: this.caller.manager.translator.getLabel('detail_fullsize_lab'),
-            current_url: this.getCurrentUrl(doc)
+            current_url: this.getCurrentUrl(doc),
+            highres_url: sprintf("http://csdev-seb-02:4000/imgsrv/get/%s/original", doc.id)
 					},					
           
 					info:{

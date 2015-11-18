@@ -183,13 +183,13 @@ var EventsManager;
 
 
 		var sorterOpt = {'all': 
-							[
+							[ {"value": "field_last_updated desc"},
 							 	{"value": "score desc"},						        
-						        {"value": "invnumber asc"},
-						        {"value": "invnumber desc"},
-						        {"value": "created desc"},
-                    {"value": "created asc"}
-						    ]};		
+				        {"value": "invnumber asc"},
+				        {"value": "invnumber desc"},
+				        {"value": "created desc"},
+                {"value": "created asc"}                    
+						  ]};		
 		
 		Manager.addWidget(new AjaxSolr.SorterWidget({
 			id: 'sorter',
@@ -231,6 +231,17 @@ var EventsManager;
 			}));
 		};	
 		
+    //* cloud widget
+		//for (var i = 0, l = searchFieldsTypes.length; i < l; i++) {
+  		Manager.addWidget(new AjaxSolr.TagcloudWidget({
+    		id: 'tag_prev_q',				
+    		target: '#tag_prev_q',
+    		field: 'prev_q',
+        template: Mustache.getTemplate('templates/current.html')
+  		}));
+		//};	
+
+    
 		//* daterange -> overrides date filter, so it has to be declared after filters
 		Manager.addWidget(new AjaxSolr.DateRangeWidget({
 			id: 'adv_acq_date_range',

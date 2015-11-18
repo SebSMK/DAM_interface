@@ -288,7 +288,8 @@
 	  "sorter_invnumber desc":		"navn (Å to A)",
 	  "sorter_invnumber asc":		"navn (A to Å)",
 	  "sorter_created desc":	"sidst optaget",
-    "sorter_created asc":	"først optaget",	
+    "sorter_created asc":	"først optaget",
+    "sorter_field_last_updated desc":	"sidst opdateret",	
 	  
 	  "sorter_last_updated":	"sidst opdateret",
 	  

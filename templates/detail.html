@@ -3,7 +3,9 @@
 <script id="detailTemplate" type="text/template">
 
 {{#detail}}
-<article class="artwork">
+
+<article class="artwork">  
+  
   <div class="artwork-inner">
     
     {{#media}}
@@ -41,12 +43,11 @@
       
       <div class="toolset object">
        			<div class="tool-img-down">
-              <a class="inline-gallery-down" href="{{{current_url}}}">
-        				Hi-res
+              <a class="inline-gallery-down" target="_blank" href="{{{highres_url}}}">
+        				High-res
         			<i></i>
         			</a>       
-            </div>
-            <iframe id="down_iframe" style="display:none;">                
+            </div>              
    		</div> 
       
 			
@@ -54,7 +55,7 @@
 			{{/image}}
 
 
-			</div> 
+			     </div> 
          </div>
        </div>
      </div>
@@ -125,9 +126,10 @@
 
     	</div><!-- #info-container -->
     {{/info}}	
-    {{/detail}}
+    {{/detail}}       
+  </div> 
   
-  </div>
+  </div>    
 </article>
 
 </script>

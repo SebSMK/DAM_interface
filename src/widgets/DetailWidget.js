@@ -112,10 +112,11 @@
 		        });    
             
             // click on download
+            /*
 					 $('.tool-img-down').click(function () {
 		            var url = sprintf("http://csdev-seb-02:4000/imgsrv/get/%s/original", artwork_data.id);
                 document.getElementById('down_iframe').src = url;		                 		                 
-		        });     
+		        });*/     
           
 				});	
 			}else{

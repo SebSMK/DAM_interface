@@ -110,7 +110,8 @@
       "qf"
    ],
    
-   "fq_default":"value:[* TO *] AND (type:.tif OR type:.jpg)",
+   "fq_default":"value:[* TO *]",
+   "fq_default_type_filter":"value:[* TO *] AND (type:.tif OR type:.jpg)",
    "fq_default_debug":"-(id:(*/*)) -(id:(*verso)) -(medium_image_url:[* TO *])",
    "fq_default_prod":"",
    

@@ -38,6 +38,7 @@
 	<script src="src/core/AbstractTextWidget.js" type="text/javascript"></script>
 	<script src="src/widgets/SearchBoxAutoWidget.js" type="text/javascript"></script>
 	<script src="src/widgets/SorterWidget.js" type="text/javascript"></script>
+  <script src="src/widgets/TagCloudWidget.js" type="text/javascript"></script>
 	
 	<script src="src/data/getData_Common_functions.js" type="text/javascript"></script>			
 	<script src="src/data/getData_Detail_Standard.js" type="text/javascript"></script>
