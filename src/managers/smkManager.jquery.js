@@ -43,15 +43,16 @@
 					};
 					if (this.proxyUrl) {
 						//options.url = this.proxyUrl + '?wt=json';
-            options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json';
+            options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json&json.wrf=?';            
 						/*
             options.data = {	
 								query: 		string, 
 								prev_query: prev_string, 
 								solrUrl:	this.solrUrl,
 								language:	smkCommon.getCurrentLanguage()
-						};*/
+						};
 						options.type = 'POST';
+            */
 					}
 					else {
 						options.url = this.solrUrl + servlet + '?' + string + '&wt=json&json.wrf=?';
