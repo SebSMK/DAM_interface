@@ -42,13 +42,15 @@
 						self.handleError(textStatus + ', ' + errorThrown);
 					};
 					if (this.proxyUrl) {
-						options.url = this.proxyUrl + '?wt=json';
-						options.data = {	
+						//options.url = this.proxyUrl + '?wt=json';
+            options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json';
+						/*
+            options.data = {	
 								query: 		string, 
 								prev_query: prev_string, 
 								solrUrl:	this.solrUrl,
 								language:	smkCommon.getCurrentLanguage()
-						};
+						};*/
 						options.type = 'POST';
 					}
 					else {
@@ -60,11 +62,11 @@
 					 * */
 
 					//* 1st method: direct -> JSON without error / timeout handling
-					//jQuery.ajax(options).done(handler).fail(errorHandler);
+					jQuery.ajax(options).done(handler).fail(errorHandler);
 					//jQuery.ajax('http://pc-0076/proxySolrPHP/proxy.php').done(handler).fail(errorHandler);
 
 					//* 2nd method: indirect -> JSONP with error / timeout handling
-					this.getJSONP(options, handler);
+					//this.getJSONP(options, handler);
 
 				},
 
