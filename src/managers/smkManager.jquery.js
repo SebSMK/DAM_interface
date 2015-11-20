@@ -44,7 +44,8 @@
 					if (this.proxyUrl) {
 						//options.url = this.proxyUrl + '?wt=json';
             //options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json&json.wrf=?';
-            options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json&json.wrf=?';            
+            options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json'; //&json.wrf=?'; 
+            options.dataType = 'jsonp';           
 						/*
             options.data = {	
 								query: 		string, 
@@ -78,7 +79,7 @@
 					var self = this;
 					//s.url = "http://csdev-seb:8180/solr-example/SMK_All_v/select?q=*%3A*&wt=json&json.wrf=?";
 
-					s.url = s.url + '&callback=' + function(data){};       
+					//s.url = s.url + '&callback=' + function(data){};       
 
 //					s.data = {'q': "*:*", 'wt':'json'};
 //					s.dataType = 'jsonp';
