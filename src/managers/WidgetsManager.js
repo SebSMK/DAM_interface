@@ -158,7 +158,8 @@ var EventsManager;
 
 		Manager.addWidget(new AjaxSolr.SearchInfoWidget({
 			id: 'search-info',
-			target: '#searchinfo',			
+			target: '#searchinfo',
+      solrsource: 'pictures_DAM',			
 			template: Mustache.getTemplate('templates/search_info.html')
 		}));
 		
@@ -198,20 +199,23 @@ var EventsManager;
 			template: Mustache.getTemplate('templates/sorter.html')
 		})); 
 		
+    /*
 		Manager.addWidget(new AjaxSolr.CheckBoxWidget({
 			id: 'checkbox',
 			target: '#checkbox',
 			field: 'medium_image_url',
 			template: Mustache.getTemplate('templates/checkbox.html')
-		})); 			
+		}));*/ 			
 		
 		Manager.addWidget(new AjaxSolr.TeasersWidget({
 			id: 'teasers',
 			target: '#smk_teasers',
 			template: Mustache.getTemplate('templates/teasers.html'),
+      solrsource: 'pictures_DAM',	
 			initTemplate:'#teaserInitTemplate'
 		}));
 		
+    /*
 		//* advanced search panel
 		Manager.addWidget(new AjaxSolr.AdvancedSearchWidget({
 			id: 'advanced',
@@ -220,6 +224,7 @@ var EventsManager;
 			facets_list: Manager.store.facets_default 
 		}));
 		
+    
 		//* filters
 		for (var i = 0, l = all_facets.length; i < l; i++) {						
 			// advanced search filters
@@ -230,18 +235,20 @@ var EventsManager;
 				template: Mustache.getTemplate('templates/chosen.html')
 			}));
 		};	
-		
+		*/
+    
     //* cloud widget
 		//for (var i = 0, l = searchFieldsTypes.length; i < l; i++) {
   		Manager.addWidget(new AjaxSolr.TagcloudWidget({
     		id: 'tag_prev_q',				
     		target: '#tag_prev_q',
     		field: 'prev_q',
+        solrsource: 'users_tags',
         template: Mustache.getTemplate('templates/current.html')
   		}));
 		//};	
 
-    
+    /*
 		//* daterange -> overrides date filter, so it has to be declared after filters
 		Manager.addWidget(new AjaxSolr.DateRangeWidget({
 			id: 'adv_acq_date_range',
@@ -257,11 +264,13 @@ var EventsManager;
 			field: {'max': 'object_production_date_earliest' , 'min': 'object_production_date_latest'},
 			template: Mustache.getTemplate('templates/daterange.html')
 		})); 
-
+    */
+    
 		//* Detail widget		
 		Manager.addWidget(new AjaxSolr.DetailWidget({
 			id: 'details',
 			target: '#smk_detail',
+      solrsource: 'pictures_DAM',
 			template: Mustache.getTemplate('templates/detail.html')
 		}));
 		

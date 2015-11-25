@@ -102,6 +102,10 @@
 					var fq_all = this.get('fq') == null ? [] : this.get('fq');
 					return smkCommon.removeFirstFromArray(fq_all, this.fq_default);
 				},
+        
+        proxystring: function () {          
+          return this.get('q').value == this.q_default ? '*' : this.get('q').value;
+        },
 
 				/******************************
 				 * PRIVATE FUNCTIONS

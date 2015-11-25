@@ -25,7 +25,7 @@
 			$target.empty();
 
 			// in case there are no results
-			if (this.manager.response.response.docs.length == 0){
+			if (this.manager.response[self.solrsource].response.docs.length == 0){
 				$target
 				// remove the loading class (so the ViewManager can remove background spinner), 
 				.removeClass('image_loading')
@@ -40,8 +40,8 @@
 			var artwork_data = null;
 			var dataHandler = new getData_Detail_Standard.constructor(this);			
 
-			for (var i = 0, l = this.manager.response.response.docs.length; i < l ; i++) {
-				var doc = this.manager.response.response.docs[i]; 												
+			for (var i = 0, l = this.manager.response[self.solrsource].response.docs.length; i < l ; i++) {
+				var doc = this.manager.response[self.solrsource].response.docs[i]; 												
 				artwork_data = dataHandler.get_data(doc);  
 			}
 

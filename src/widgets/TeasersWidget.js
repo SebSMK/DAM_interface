@@ -28,6 +28,7 @@
 			self.sub_scrollWidget = new AjaxSolr.ScrollWidget({
 				id: 'sub_scroll_teasers',
 				target: self.target,
+        solrsource: self.solrsource,
 				template: self.template
 			});
 			
@@ -62,8 +63,8 @@
 
 			$(document).ready(function() {
 				$(window).scroll(function(event){
-					if (self.getRefresh() && $(self.target).offset().top > 0)
-						self.scrollUpdateWidget.scrollStart(event);
+					//if (self.getRefresh() && $(self.target).offset().top > 0)
+						//self.scrollUpdateWidget.scrollStart(event);
 				});								
 			});	  	
 		},  
@@ -80,7 +81,7 @@
 			
 			if(smkCommon.debugTime()) console.time("Teasers");									
 
-			if (this.manager.response.response.docs.length == 0){
+			if (this.manager.response[self.solrsource].response.docs.length == 0){
 				// trig "is loaded" event	      
 				$(self).trigger({
 					type: "smk_teasers_all_images_loaded"
@@ -188,7 +189,7 @@
 			});	
 
 			//* once images are loaded in teaser, start preloading request			
-			self.scrollUpdateWidget.start_scroll_preload_request(true);
+			//self.scrollUpdateWidget.start_scroll_preload_request(true);
 			
 			return true;			
 		},
@@ -247,9 +248,10 @@
 			var artwork_data = null;		
 			var dataHandler = new getData_Teasers.constructor(this);				
 			var tiles = new String();													
-
-			for (var i = 0, l = this.manager.response.response.docs.length; i < l; i++) {
-				var doc = this.manager.response.response.docs[i];	      	      	      
+      var self = this;
+      
+			for (var i = 0, l = this.manager.response[self.solrsource].response.docs.length; i < l; i++) {
+				var doc = this.manager.response[self.solrsource].response.docs[i];	      	      	      
 
 				//* load data for this artwork		      
 				artwork_data = dataHandler.getData(doc);	      	      

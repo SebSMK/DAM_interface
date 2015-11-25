@@ -41,7 +41,8 @@ AjaxSolr.AbstractWidget = AjaxSolr.Class.extend(
       // A reference to the widget's manager.
       manager: null,
       // HTML Template
-      template: null
+      template: null,
+      solrsource: null
     }, attributes);
   },
 

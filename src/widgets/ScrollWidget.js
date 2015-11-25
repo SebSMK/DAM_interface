@@ -15,7 +15,7 @@
 				return;
 			}	 		  
 
-			if (this.manager.response.response.docs.length == 0){ 
+			if (this.manager.response[self.solrsource].response.docs.length == 0){ 
 				$target.find('.image_loading').removeClass('image_loading').hide();
 
 				$(self).trigger({
@@ -124,8 +124,8 @@
 			var dataHandler = new getData_Teasers.constructor(this);				
 			var tiles = new String();													
 			
-			for (var i = 0, l = this.manager.response.response.docs.length; i < l; i++) {
-				var doc = this.manager.response.response.docs[i];	      	      	      
+			for (var i = 0, l = this.manager.response[this.solrsource].response.docs.length; i < l; i++) {
+				var doc = this.manager.response[this.solrsource].response.docs[i];	      	      	      
 				
 				//* load data for this artwork		      
 				artwork_data = dataHandler.getData(doc);	      	      

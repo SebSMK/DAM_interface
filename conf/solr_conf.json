@@ -5,7 +5,7 @@
    "server_dam":"http://csdev-seb:8180/solr-example/dev_DAM/",      
    "server_proxyxxx":"http://solr.smk.dk:8080/proxySolrPHP/proxy.php",
    "server_proxy1":"http://172.20.1.203:8008",
-   "server_proxy":"http://172.20.1.203:4000/proxyc",
+   "server_proxy":"http://172.20.1.203:4000/proxy",
    "server":"/solr-example/dev_DAM/select",
    
    "facets":{

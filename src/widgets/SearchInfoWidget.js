@@ -10,7 +10,7 @@
 				return;
 			}	 		  			
 
-			var total = parseInt(self.manager.response.response.numFound);
+			var total = parseInt(self.manager.response[self.solrsource].response.numFound);
 			
 			var $target = $(self.target);
 			$target.empty();

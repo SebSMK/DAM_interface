@@ -31,10 +31,11 @@
 
 				executeRequest: function (servlet, string, handler, errorHandler) {
 					var self = this,
-					options = {dataType: 'jsonp'};
+					options = {}; // = {dataType: 'jsonp'};
 					//options = {dataType: 'html'};
 					prev_string = this.store.storedString();
-					string = string || this.store.string();
+					//string = string || this.store.string();
+          string = this.store.proxystring();
 					handler = handler || function (data) {
 						self.handleResponse(data);
 					};   
@@ -44,7 +45,8 @@
 					if (this.proxyUrl) {
 						//options.url = this.proxyUrl + '?wt=json';
             //options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json&json.wrf=?';
-            options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json'; //&json.wrf=?'; 
+            //options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json'; //&json.wrf=?';
+            options.url = this.proxyUrl + '/' + string; 
             options.dataType = 'jsonp';           
 						/*
             options.data = {	
@@ -65,11 +67,11 @@
 					 * */
 
 					//* 1st method: direct -> JSON without error / timeout handling
-					//jQuery.ajax(options).done(handler).fail(errorHandler);
+					jQuery.ajax(options).done(handler).fail(errorHandler);
 					//jQuery.ajax('http://pc-0076/proxySolrPHP/proxy.php').done(handler).fail(errorHandler);
 
 					//* 2nd method: indirect -> JSONP with error / timeout handling
-					this.getJSONP(options, handler);
+					//this.getJSONP(options, handler);
 
 				},
 
