@@ -248,6 +248,21 @@
 
 		};
 
+    /*
+		 * click on a tag in Tagcloud element
+		 * @result:  model update 
+		 * */
+		this.smk_call_cloud_elem = function(event){			
+			var search_string = jQuery.trim(event.facet);			
+			var default_teaser_view = ModelManager.get_view() == 'detail';
+			var model = {};										
+      
+			model.q = [search_string];					
+			model.lang = ModelManager.current_value_joker;
+
+			ModelManager.update(model);					
+		};
+
 		/*
 		 * search string removed in Currentsearch
 		 * @result:  model update 

@@ -46,7 +46,9 @@
 						//options.url = this.proxyUrl + '?wt=json';
             //options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json&json.wrf=?';
             //options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json'; //&json.wrf=?';
-            options.url = this.proxyUrl + '/' + string; 
+            var proxy_path =  ModelManager.get_view() != null ? '/dam/foto/' : '/dam/search/';  
+            
+            options.url = this.proxyUrl + proxy_path + string; 
             options.dataType = 'jsonp';           
 						/*
             options.data = {	

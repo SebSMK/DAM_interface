@@ -40,11 +40,16 @@
 			var artwork_data = null;
 			var dataHandler = new getData_Detail_Standard.constructor(this);			
 
+      if(this.manager.response[self.solrsource].response.docs.length > 0){
+        var doc = this.manager.response[self.solrsource].response.docs[0]; 												
+				artwork_data = dataHandler.get_data(doc);
+      }
+/*
 			for (var i = 0, l = this.manager.response[self.solrsource].response.docs.length; i < l ; i++) {
 				var doc = this.manager.response[self.solrsource].response.docs[i]; 												
 				artwork_data = dataHandler.get_data(doc);  
 			}
-
+*/
 			//* merge data and template
 			var html = self.template_integration_json({"detail": artwork_data}, '#detailTemplate'); 
 			var $html = $(html);						

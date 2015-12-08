@@ -214,6 +214,14 @@ var EventsManager;
       solrsource: 'pictures_DAM',	
 			initTemplate:'#teaserInitTemplate'
 		}));
+    
+    Manager.addWidget(new AjaxSolr.TeasersDocWidget({
+			id: 'teasers_doc',
+			target: '#smk_teasers_doc',
+			template: Mustache.getTemplate('templates/teasers_doc.html'),
+      solrsource: 'doc_smk',	
+			initTemplate:'#teaserInitTemplate'
+		}));
 		
     /*
 		//* advanced search panel
@@ -319,6 +327,13 @@ var EventsManager;
 		 * 
 		 * */		   
 		
+    
+    
+    //* click on tag
+		$(Manager.widgets['tag_prev_q']).on('smk_call_cloud_elem', function(event){     	
+			EventsManager.smk_call_cloud_elem(event);
+		});
+    
 		//* checkbox changed 				
 		$(Manager.widgets['checkbox']).on('hasimage', {self: Manager.widgets['checkbox']}, function(event){    		
 			EventsManager.smk_search_filter_changed(event.data.self, event.params);    		    		    		    		

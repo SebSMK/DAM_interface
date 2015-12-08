@@ -56,7 +56,7 @@
 
 				// once images are loaded, start preloading request
 				// (but preloading will start only under a given thresold of remaining number of preloaded images)
-				self.scrollUpdateWidget.start_scroll_preload_request(true);
+				//self.scrollUpdateWidget.start_scroll_preload_request(true);
 			});
 
 			self.scrollUpdateWidget.init();
@@ -236,8 +236,8 @@
 			$tiles.each(function() {
 				$(this).show();		    			    			    			    					    		
 				
-				if(!smkCommon.isElemIntoView($(this)))
-					$(this).addClass('preloaded');
+				//if(!smkCommon.isElemIntoView($(this)))
+					//$(this).addClass('preloaded');
 			});	
 
 			this.onComplete();

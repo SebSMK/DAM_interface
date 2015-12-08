@@ -39,8 +39,9 @@
 				}
 				objectedItems.push({ facet: facet, count: count });
 			}
-			objectedItems.sort(function (a, b) {
-				return a.facet < b.facet ? -1 : 1;
+			
+      objectedItems.sort(function (a, b) {
+				return a.count < b.count ? 1 : -1;
 			});
 
 			$(self.target).fadeOut(500);
@@ -63,9 +64,14 @@
 			if (links.length) {                  
 				var html = self.template_integration_json({"current": links}, '#currentItemsTemplate');
 				$(self.target).html(html);
-				//$(self.target).find('a').click(self.removeClickedFacet());            
+				//$(self.target).find('a').click(self.removeClickedFacet());
+        // add click handler on each tag
+        $(self.target).find('a').click(self.clickHandler());            
 			}
 			
+      
+      
+      
 			$(self.target).fadeIn(500);
 			
 			//* send finih loading event
@@ -111,9 +117,10 @@
 
 			if (links.length) {                  
 				var html = self.template_integration_json({"current": links}, '#currentItemsTemplate');
-				$(self.target).html(html);
+				$(self.target)
+        .html(html)        
 				//$(self.target).find('a').click(self.removeClickedFacet());            
-			}
+			}            
 			
 			$(self.target).fadeIn(500);
 			
@@ -131,15 +138,15 @@
 			return html;
 		},
 
-		  clickHandler: function (facet) {
-		    var self = this;
-		    return function (event) {
-		      $(self).trigger({
-				type: "smk_call_cloud_elem",
-				facet: facet
-			  });	
-		      return false;
-		    }
-		  }
+	  clickHandler: function () {
+	    var self = this;
+	    return function (event) {
+	      $(self).trigger({
+			type: "smk_call_cloud_elem",
+			facet: $(event.target).text()
+		  });	
+	      return false;
+	    }
+	  }
 	});
 })(jQuery);

@@ -23,6 +23,7 @@
 	<script src="src/widgets/DetailTabsManagerWidget.js" type="text/javascript"></script>
 	<script src="src/widgets/OriginalWidget.js" type="text/javascript"></script>	
 	<script src="src/widgets/TeasersWidget.js" type="text/javascript"></script>
+  <script src="src/widgets/TeasersDocWidget.js" type="text/javascript"></script>
 	<script src="src/widgets/SearchInfoWidget.js" type="text/javascript"></script>	
 	<script src="src/widgets/ScrollWidget.js" type="text/javascript"></script>
 	<script src="src/widgets/LanguagePickerWidget.js" type="text/javascript"></script>	
@@ -45,6 +46,7 @@
 	<script src="src/data/getData_Detail_Original.js" type="text/javascript"></script>
 	<script src="src/data/getData_Detail_Extented.js" type="text/javascript"></script>		
 	<script src="src/data/getData_Teasers.js" type="text/javascript"></script>
+  <script src="src/data/getData_Teasers_Doc.js" type="text/javascript"></script>
 	<script src="src/data/getData_Advanced.js" type="text/javascript"></script>	
     
   	<script src="src/js/mustache.smk.js" type="text/javascript"></script>	
