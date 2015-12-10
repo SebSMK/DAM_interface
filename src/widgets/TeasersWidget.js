@@ -5,7 +5,10 @@
 		constructor: function (attributes) {
 			AjaxSolr.AbstractWidget.__super__.constructor.apply(this, arguments);
 			AjaxSolr.extend(this, {
-				initTemplate:null
+				initTemplate: null,
+        dataHandler: null,
+        triggerId: null 
+        
 			}, attributes);
 		},
 
@@ -29,14 +32,14 @@
 				id: 'sub_scroll_teasers',
 				target: self.target,
         solrsource: self.solrsource,
-				template: self.template
+				template: self.template,
+        dataHandler: self.dataHandler
 			});
 			
 			var offset = parseInt(self.manager.store.get('start').val()) + parseInt(self.manager.store.get('rows').val());
 			//* init scrollUpdateWidget
 			self.scrollUpdateWidget = new AjaxSolr.ScrollUpdateManagerWidget({
-				id: 'scroll_update',
-				scrollManager: self.scrollManager, 
+				id: 'scroll_update', 
 				scroll_subWidget: self.sub_scrollWidget,
 				start_offset: offset,
 				mainManager: this.manager
@@ -56,15 +59,15 @@
 
 				// once images are loaded, start preloading request
 				// (but preloading will start only under a given thresold of remaining number of preloaded images)
-				//self.scrollUpdateWidget.start_scroll_preload_request(true);
+				self.scrollUpdateWidget.start_scroll_preload_request(true);
 			});
 
 			self.scrollUpdateWidget.init();
 
 			$(document).ready(function() {
 				$(window).scroll(function(event){
-					//if (self.getRefresh() && $(self.target).offset().top > 0)
-						//self.scrollUpdateWidget.scrollStart(event);
+					if (self.getRefresh() && $(self.target).offset().top > 0)
+						self.scrollUpdateWidget.scrollStart(event);
 				});								
 			});	  	
 		},  
@@ -84,7 +87,7 @@
 			if (this.manager.response[self.solrsource].response.docs.length == 0){
 				// trig "is loaded" event	      
 				$(self).trigger({
-					type: "smk_teasers_all_images_loaded"
+					type: self.triggerId
 				});				
 				return;		
 			}
@@ -121,12 +124,12 @@
 			this.highlightning();
 			this.dotdotdot();
 			
-//			var $tiles = $(this.target).find('.matrix-tile');
-//			$tiles.each(function() {
-//				var $tile = $(this);
-//				if(smkCommon.isElemIntoView(this))
-//					$tile.removeClass('preloaded').show();
-//			});			
+			var $tiles = $(this.target).find('.matrix-tile');
+			$tiles.each(function() {
+				var $tile = $(this);
+				if(smkCommon.isElemIntoView(this))
+					$tile.removeClass('preloaded').show();
+			});			
 		},
 		
 		refreshViewport: function(){			
@@ -185,11 +188,11 @@
 			self.refreshLayout();						
 
 			$(self).trigger({
-				type: "smk_teasers_all_images_loaded"
+				type: self.triggerId
 			});	
 
 			//* once images are loaded in teaser, start preloading request			
-			//self.scrollUpdateWidget.start_scroll_preload_request(true);
+			self.scrollUpdateWidget.start_scroll_preload_request(true);
 			
 			return true;			
 		},
@@ -236,8 +239,8 @@
 			$tiles.each(function() {
 				$(this).show();		    			    			    			    					    		
 				
-				//if(!smkCommon.isElemIntoView($(this)))
-					//$(this).addClass('preloaded');
+				if(!smkCommon.isElemIntoView($(this)))
+					$(this).addClass('preloaded');
 			});	
 
 			this.onComplete();
@@ -246,7 +249,8 @@
 		
 		getTiles: function(){			
 			var artwork_data = null;		
-			var dataHandler = new getData_Teasers.constructor(this);				
+			//var dataHandler = new getData_Teasers.constructor(this);
+      var dataHandler = new this.dataHandler.constructor(this);				
 			var tiles = new String();													
       var self = this;
       

@@ -32,7 +32,7 @@
 			var self = this;
 			
 			self.current_language = self.manager.translator.getLanguage();
- /*
+
 			//* related              
 			var params = 
 
@@ -73,7 +73,7 @@
 			for (var name in params.detail) {				
 				self.originalManager.store.addByValue(name, params.detail[name]);
 			}   
-  
+
 			//***
 			//* original sub widget
 			//***
@@ -85,7 +85,7 @@
 			//***
 			//* sub widget coupling
 			self.relatedManager.addWidget(self.related_subWidget); 				
-  
+
 			// click on a related artwork
 			$(self.related_subWidget).on('smk_search_call_detail', function(event){ 								
 				$(self).trigger({
@@ -128,7 +128,7 @@
 				self.end_tab_process(self.original_subWidget.target);
 			});	
 
-			*/
+			
 		}, 
 
 		process_details_tabs: function () {	  
@@ -141,15 +141,8 @@
 				return;
 			}	
 
-      var count = -1; // there's at least one result == detail image
-      for (var key in this.manager.response) {
-  		  if (this.manager.response.hasOwnProperty(key)) {
-    			count += this.manager.response[key].response.docs.length;     			
-  		  }
-  		}      
-
 			// in case there are no results
-			if (count == 0){
+			if (this.manager.response.response.docs.length == 0){
 				$target
 				// remove the loading class (so the ViewManager can remove background spinner), 
 				.removeClass('image_loading')
@@ -160,11 +153,6 @@
 				});
 				return;		
 			}			
-
-      this.process_init_tabs();
-      this.end_tab_process();
-      
-      /*
 
 			var tab_data = null;
 			var dataHandler = new getData_Detail_Extended.constructor(this);
@@ -192,7 +180,7 @@
 			this.process_related();
 			this.process_parts();
 			this.process_extended();
-			this.process_extended_original();     */
+			this.process_extended_original();
 		},  
 
 		template_integration_json: function (json_data, templ_id){	  
@@ -274,10 +262,10 @@
 
 			$target.css('visibility', 'hidden');
 			
-			//if ($target.is(':empty')){
+			if ($target.is(':empty')){
 				//* merge data and template
-				//var html = self.template_integration_json({}, '#detailTemplate');    
-				//$target.html(html); 						
+				var html = self.template_integration_json({}, '#detailTemplate');    
+				$target.html(html); 						
 
 				//* click on tab
 				$target.find('.tabs').not('.print-tabs').find('a').click(function (event) {
@@ -287,16 +275,14 @@
 					$target.find(".tab-content").removeClass("tab-content--open");
 					$target.find($(this).attr("href")).addClass("tab-content--open");					
 					
-					//self.refreshLayout();
-          //* if necessary, show preloaded objects in the active tab                        												    
-    			self.showpreloaded($(this), $target);
+					self.refreshLayout();
 					
 				});													
-			//}
+			}
 			
 			$target.find('.tabs').not('.print-tabs').find('a').each(function(){
 				$(this).removeClass('active');
-				//$(this).addClass('isloading');
+				$(this).addClass('isloading');
 				$target.find($(this).attr('href')).removeClass("tab-content--open");				
 				
 				//* add text to tabs (and change language if needed)
@@ -338,11 +324,7 @@
 						
 						if ($(this).hasClass('break'))
 							$target.find($(this).attr('href')).append(print_break); 
-					}	
-          
-          //* if necessary, show preloaded objects in the active tab                        												    
-    			self.showpreloaded($(this), $target);
-    												
+					}										
 				} 																		
 			});
 			
@@ -352,15 +334,6 @@
 			$target.css('visibility', 'visible');						
 		},		
 		
-    showpreloaded: function($this, $target){
-       $target.find($this.attr('href')).find('.preloaded').each(function(){
-				if(smkCommon.isElemIntoView(this)){
-					//self.loadImage($(this))
-					$(this).removeClass('preloaded');    						
-				}										
-			});
-    },
-    
 		hideTabs: function(){
 			var self = this;
 			var $target = $(self.target);

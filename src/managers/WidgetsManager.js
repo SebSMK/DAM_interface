@@ -212,15 +212,20 @@ var EventsManager;
 			target: '#smk_teasers',
 			template: Mustache.getTemplate('templates/teasers.html'),
       solrsource: 'pictures_DAM',	
-			initTemplate:'#teaserInitTemplate'
+			initTemplate:'#teaserInitTemplate',
+      dataHandler: getData_Teasers,
+      triggerId: "smk_teasers_all_images_loaded"
 		}));
+     
     
-    Manager.addWidget(new AjaxSolr.TeasersDocWidget({
+    Manager.addWidget(new AjaxSolr.TeasersWidget({
 			id: 'teasers_doc',
-			target: '#smk_teasers_doc',
+			target: '#smk_doc_related',
 			template: Mustache.getTemplate('templates/teasers_doc.html'),
       solrsource: 'doc_smk',	
-			initTemplate:'#teaserInitTemplate'
+			initTemplate:'#teaserInitTemplate',
+      dataHandler: getData_Teasers_Doc,
+      triggerId: "smk_teasers_all_doc_loaded"
 		}));
 		
     /*
@@ -283,41 +288,57 @@ var EventsManager;
 		}));
 		
     
-		//* Parts / Related widgets
-    /* 		
+		//* Parts / Related widgets   
+    
+     		
 		var sub_partsWidget = new AjaxSolr.TeasersWidget({
 			id: 'parts',
 			target: '#components',
 			template: Mustache.getTemplate('templates/teasers.html'),
 			initTemplate:'#relatedInitTemplate'
 		});
-		
+	/*
 		var sub_relatedWidget = new AjaxSolr.TeasersWidget({
 			id: 'related',
 			target: '#related',
 			template: Mustache.getTemplate('templates/teasers.html'),
 			initTemplate:'#relatedInitTemplate'
 		});
-
+    */
 		var sub_originalWidget = new AjaxSolr.OriginalWidget({
 			id: 'original',
 			target: '#tab_original',
 			template: Mustache.getTemplate('templates/detail_tabs.html')
 		});
-
+    
 		Manager.addWidget(new AjaxSolr.DetailTabsWidget({
 			id: 'details_tabs',
 			target: '#smk_detail_tabs',
 			template: Mustache.getTemplate('templates/detail_tabs.html'),
-			partsManager: partsManager,
-			parts_subWidget: sub_partsWidget,
-			relatedManager: relatedManager,
-			related_subWidget: sub_relatedWidget,
-			originalManager: getDetailManager,
-			original_subWidget: sub_originalWidget
+			partsManager: null,
+			parts_subWidget: null,
+			relatedManager: null,
+			related_subWidget: null,
+			originalManager: null,
+			original_subWidget: null
 		}));	
-    */
-
+    
+    Manager.addWidget(new AjaxSolr.DetailTabsExtendedWidget({
+			id: 'details_extended_tabs',
+			target: '#extended',
+      template: Mustache.getTemplate('templates/detail_tabs.html'),
+      solrsource: 'CollectionSpace'
+    }));
+    
+    Manager.addWidget(new AjaxSolr.DetailTabsHighlightWidget({
+			id: 'details_highlight_tabs',
+			target: '#reference',
+      template: Mustache.getTemplate('templates/detail_tabs.html'),
+      solrsource: 'CollectionSpace'
+    }));
+    
+    
+    
 		//******************************
 		//** add event listeners
 		//******************************

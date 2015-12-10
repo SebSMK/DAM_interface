@@ -98,7 +98,7 @@
 			this.add_modal_loading_to_widget('details');
 			
 			// details tabs
-			this.add_modal_loading_to_widget('details_tabs');
+			//this.add_modal_loading_to_widget('details_tabs');
 			
 			// reload title
 			$(this.target).find(".branding i").text(Manager.translator.getLabel("general_title"));
@@ -212,8 +212,8 @@
 			switch(stateChange["view"]){
 			case "teasers":			  
 
-				$target.find("section.section--list").show();
-				$target.find("section.section--detail").hide();
+				//$target.find("section.section--list").show();
+				//$target.find("section.section--detail").hide();
 
 //				$(self.callWidgetTarget('details', 'thumbnails_subWidget')).empty();
 //				self.hideWidget($(self.callWidgetTarget('details', 'thumbnails_subWidget')));
@@ -238,9 +238,9 @@
 
 			case "detail":										 
 
-				self.callWidgetFn('details_tabs', 'removeAllRelated');
-				self.callWidgetFn('details_tabs', 'removeAllParts');
-				self.callWidgetFn('details_tabs', 'hideTabs');
+				//self.callWidgetFn('details_tabs', 'removeAllRelated');
+				//self.callWidgetFn('details_tabs', 'removeAllParts');
+				//self.callWidgetFn('details_tabs', 'hideTabs');
 
 				$target.find("section.section--list").hide();
 				$target.find("section.section--detail").show();				
@@ -255,7 +255,7 @@
 				self.hideWidget($(self.callWidgetTarget('category')));				
 				self.hideWidget($(self.callWidgetTarget('sorter')));
 				//self.hideWidget($(self.callWidgetTarget('pager')));							
-				self.hideWidget($(self.callWidgetTarget('teasers')));
+				//self.hideWidget($(self.callWidgetTarget('teasers')));
 				self.showWidget($(self.callWidgetTarget('details')));
 //				self.showWidget($(self.callWidgetTarget('details', 'thumbnails_subWidget')));
 //				self.showWidget($(self.callWidgetTarget('details', 'related_subWidget')));				

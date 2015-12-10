@@ -401,6 +401,9 @@
 			this.allWidgetProcessed = false;
 			if(smkCommon.debugLog()) console.log(sprintf(sprintf("Events - allWidgetsLoaded b4 - scrollTop_%s", $(window).scrollTop() )));
 
+      // start details_tabs processing
+			ViewManager.callWidgetFn('details_tabs', 'process_details_tabs');
+      
 			ViewManager.allWidgetsLoaded();
 
 			if(smkCommon.debugLog()) console.log(sprintf(sprintf("Events - allWidgetsLoaded - scrollTop_%s", $(window).scrollTop() )));							
@@ -416,7 +419,7 @@
 		this.smk_teasers_all_images_loaded = function(all_facets){			
 			ViewManager.smk_teasers_all_images_loaded();
 			this.wigdetLoaded();
-			var self = this;
+			var self = this;      
 
 			// start searchFilters processing
 			// we're queuing processing of each advanced filter field, so that they're processed in a row with a 10ms interval
@@ -430,7 +433,9 @@
 			for (var i = 0, l = all_facets.length; i < l; i++) {				
 				//doQueueProcess(all_facets[i]);
 				doQueueProcess("adv_" + all_facets[i]);
-			};			
+			};
+      
+      			
 		};			
 
 		//* image has finished loading in "detail"
@@ -438,8 +443,8 @@
 			ViewManager.smk_detail_this_img_loaded();
 			this.wigdetLoaded();
 
-			// start details_tabs processing
-			ViewManager.callWidgetFn('details_tabs', 'process_details_tabs');
+			//// start details_tabs processing
+			//ViewManager.callWidgetFn('details_tabs', 'process_details_tabs');
 		};
 		
 		//* all tabs loaded in "detail tabs"		 

@@ -1,7 +1,14 @@
 (function ($) {
 
 	AjaxSolr.ScrollWidget = AjaxSolr.AbstractWidget.extend({  				
-
+     
+     constructor: function (attributes) {
+			AjaxSolr.AbstractWidget.__super__.constructor.apply(this, arguments);
+			AjaxSolr.extend(this, {		
+        dataHandler: null                
+			}, attributes);
+		},
+    
 		/*
 		 * PUBLIC FUNCTIONS
 		 * **/					
@@ -121,7 +128,7 @@
 		
 		getTiles: function(){			
 			var artwork_data = null;		
-			var dataHandler = new getData_Teasers.constructor(this);				
+			var dataHandler = new this.dataHandler.constructor(this);				
 			var tiles = new String();													
 			
 			for (var i = 0, l = this.manager.response[this.solrsource].response.docs.length; i < l; i++) {

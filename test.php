@@ -20,10 +20,11 @@
 	<script src="src/core/smkParameterStore.js" type="text/javascript"></script>
 	<script src="src/core/AbstractWidget.js" type="text/javascript"></script>
 	<script src="src/widgets/DetailWidget.js" type="text/javascript"></script>
+  <script src="src/widgets/DetailTabsExtendedWidget.js" type="text/javascript"></script>
+  <script src="src/widgets/DetailTabsHighlightWidget.js" type="text/javascript"></script>
 	<script src="src/widgets/DetailTabsManagerWidget.js" type="text/javascript"></script>
 	<script src="src/widgets/OriginalWidget.js" type="text/javascript"></script>	
-	<script src="src/widgets/TeasersWidget.js" type="text/javascript"></script>
-  <script src="src/widgets/TeasersDocWidget.js" type="text/javascript"></script>
+	<script src="src/widgets/TeasersWidget.js" type="text/javascript"></script>  
 	<script src="src/widgets/SearchInfoWidget.js" type="text/javascript"></script>	
 	<script src="src/widgets/ScrollWidget.js" type="text/javascript"></script>
 	<script src="src/widgets/LanguagePickerWidget.js" type="text/javascript"></script>	

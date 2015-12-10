@@ -1,5 +1,5 @@
 <div>
-	<script id="teaserInitTemplate" type="text/template">	     
+	<script id="teaserInitTemplate" type="text/template">      
 			<div class="matrix matrix-equalized">  
 				<div class="matrix-tile-size"></div>       								
 			</div>				
@@ -14,7 +14,7 @@
 	<script id="teaserArticleTemplate" type="text/template">	
 
 	{{#artworks}}
-	<div id="{{media.img_id}}" class="matrix-tile">
+	<div id="{{info.version}}" class="matrix-tile">
 
 		<!-- matrix-tile-inner -->
 		<div class="matrix-tile-inner">
@@ -25,17 +25,7 @@
 
 				<i></i>
 				<!-- invisible link - make the whole div container clickable -->
-				<a class="divLink" href="{{url}}">&nbsp;</a> {{#copyright.show}} 
-				<span class="copyright-info">
-					<ul>
-						<li>&#169;&nbsp;{{{copyright.text}}}</li>
-					</ul>
-				</span> {{/copyright.show}} {{#copyright.img_cc0}} 
-				<span class="copyright-info">
-					<ul>
-						<li>{{{media.copyright_text_cc0}}}</li>
-					</ul>
-				</span> {{/copyright.img_cc0}}
+				<a class="divLink" href="{{url}}">&nbsp;</a>				
 
 				<div class="spinner spinner-dark">
   					<div class="rect1"></div>
@@ -75,8 +65,11 @@
 				{{/info.ident_invnummer}}
 				<!-- location kks -->
 				{{#info.size.value}}
-				<li class="matrix-tile-meta-id"><span>{{{info.size.lab}}}:&nbsp;</span>{{{info.size.value}}} Ko</li>
+				<li class="matrix-tile-meta-id"><span>{{{info.size.lab}}}:&nbsp;</span>{{{info.size.value}}}</li>
 				{{/info.size.value}}
+        {{#info.author.value}}
+				<li class="matrix-tile-meta-id"><span>{{{info.author.lab}}}:&nbsp;</span>{{{info.author.value}}}</li>
+				{{/info.author.value}}
         <!-- location kks -->
 				{{#info.path.value}}
         <br>

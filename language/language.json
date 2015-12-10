@@ -144,10 +144,12 @@
     "detail_ident_kks_location": "placering",
     
     	  
-	  "detail_tab_reference":		"værktekst",
-	  "detail_tab_components":		"værkdele",
-	  "detail_tab_extended":		"detaljer",
+	  "detail_tab_reference":		"highlight",
+	  "detail_tab_components":	"værkdele",
+	  "detail_tab_extended":		"collectionspace",
 	  "detail_tab_related":			"relaterede værker",
+    "detail_tab_smk_doc_related":			"dokumenter",
+    "detail_tab_smk_art_related":			"billeder",
 
     
     "detail_producent_lab": "kunstner | producent",
