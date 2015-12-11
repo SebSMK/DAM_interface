@@ -8,62 +8,67 @@
   
   <div class="artwork-inner">
     
-    {{#media}}
+    
     
     <div class="artwork-gallery">
-      <div class="inline-gallery">
+      <div class="inline-gallery">        
         <div class="inline-galler-inner">
+          {{#media}}
           <div class="inline-gallery-main">
             <div class="inline-gallery-main-image gallery__main {{#no_image}}matrix-tile-image-missing{{/no_image}}" {{#image}}src="{{image}}"{{/image}} title="{{title}}" img_id="{{img_id}}"><i></i></div>			           			
 
-			{{#image}}
+      			{{#image}}
+            
+      			<a target="_blank" class="inline-gallery-copyright-show-hide {{#copyright.img_cc0}}cc0active{{/copyright.img_cc0}}" {{#copyright.img_cc0}} onclick="window.open('{{{copyright.link}}}')"{{/copyright.img_cc0}}>
+      				{{#copyright.show}}
+      					<i></i>
+      					{{{copyright.text}}}
+      				{{/copyright.show}}		
       
-			<a target="_blank" class="inline-gallery-copyright-show-hide {{#copyright.img_cc0}}cc0active{{/copyright.img_cc0}}" {{#copyright.img_cc0}} onclick="window.open('{{{copyright.link}}}')"{{/copyright.img_cc0}}>
-				{{#copyright.show}}
-					<i></i>
-					{{{copyright.text}}}
-				{{/copyright.show}}		
-
-				{{#copyright.img_cc0}}
-					<i class = "cc0"></i>					
-				{{/copyright.img_cc0}}									
-			</a>
-      
-      
-						
-			{{#image_full_path}}
-      <div class="toolset object">
-       			<div class="tool-img-zoom">
-              <a class="inline-gallery-view-full" href="{{{current_url}}}">
-        				Zoom
-        			<i></i>
-        			</a>       
-            </div>                
-   		</div> 
-      
-      <div class="toolset object">
-       			<div class="tool-img-down">
-              <a class="inline-gallery-down" target="_blank" href="{{{highres_url}}}">
-        				High-res
-        			<i></i>
-        			</a>       
-            </div>              
-   		</div> 
-      
-			
-			{{/image_full_path}}
+      				{{#copyright.img_cc0}}
+      					<i class = "cc0"></i>					
+      				{{/copyright.img_cc0}}									
+      			</a>
+	
+      			{{#image_full_path}}
+            <div class="toolset object">
+             			<div class="tool-img-zoom">
+                    <a class="inline-gallery-view-full" href="{{{current_url}}}">
+              				Zoom
+              			<i></i>
+              			</a>       
+                  </div>                
+         		</div> 
+            
+            <div class="toolset object">
+             			<div class="tool-img-down">
+                    <a class="inline-gallery-down" target="_blank" href="{{{highres_url}}}">
+              				High-res
+              			<i></i>
+              			</a>       
+                  </div>              
+         		</div> 
+			     {{/image_full_path}}
 			{{/image}}
-
-
-			     </div> 
-         </div>
-       </div>
+			</div>
+      {{/media}}
+           
+      {{#versions}}
+      <ul class="inline-gallery-thumbs">
+        <li id="thumb_{{id}}">
+          <img src="{{media.image}}">
+        </li>            
+      </ul>
+      {{/versions}}
+            
      </div>
+   </div>
+ </div>
      
-    {{/media}}
+
     	
-    {{#info}}
-    	<div id="info-container" class="artwork-content">    	    	 
+  {{#info}}
+  <div id="info-container" class="artwork-content">    	    	 
     	
     	  <!-- Heading -->
 
@@ -131,6 +136,16 @@
   
   </div>    
 </article>
+
+</script>
+
+
+<script id="versionsTemplate" type="text/template">
+  <ul class="inline-gallery-thumbs">
+    <li data-copyright="Copyright info 8" data-image-full="content/david-original-8.jpeg" data-image-large="content/david-large-8.jpeg" id="976341" class="active">
+      <img src="http://172.20.1.203:4000/imgsrv/get/564af362a505a/thumb">
+    </li>    
+  </ul>
 
 </script>
 

@@ -41,15 +41,27 @@
 			var dataHandler = new getData_Detail_Standard.constructor(this);			
 
       if(this.manager.response[self.solrsource].response.docs.length > 0){
-        var doc = this.manager.response[self.solrsource].response.docs[0]; 												
-				artwork_data = dataHandler.get_data(doc);
+        // get selected picture data
+        for (var i = 0, l = this.manager.response[self.solrsource].response.docs.length; i < l ; i++) {
+  				doc = this.manager.response[self.solrsource].response.docs[i]; 	
+          if (doc.id == ModelManager.get_q()){
+            artwork_data = dataHandler.get_data(doc);
+            break;                        
+          }          											  			     
+  			}         																
+        
+        /*
+        // get data for all versions of this picture
+        var versions = [];        
+  			for (var i = 0, l = this.manager.response[self.solrsource].response.docs.length; i < l ; i++) {
+  				doc = this.manager.response[self.solrsource].response.docs[i]; 												
+  				versions.push(dataHandler.get_data(doc));  
+  			}
+        
+        if (versions.length > 0){
+          artwork_data['versions'] = versions;
+        } */               
       }
-/*
-			for (var i = 0, l = this.manager.response[self.solrsource].response.docs.length; i < l ; i++) {
-				var doc = this.manager.response[self.solrsource].response.docs[i]; 												
-				artwork_data = dataHandler.get_data(doc);  
-			}
-*/
 			//* merge data and template
 			var html = self.template_integration_json({"detail": artwork_data}, '#detailTemplate'); 
 			var $html = $(html);						

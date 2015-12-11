@@ -201,7 +201,8 @@
 			event.preventDefault();
 			$(event.data.caller).trigger({
 				type: "smk_search_call_detail",
-				detail_url: event.data.detail_url 
+				detail_url: event.data.detail_url, 
+        samewin:true
 			});
 
 			return;
