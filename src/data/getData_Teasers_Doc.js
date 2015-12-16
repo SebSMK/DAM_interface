@@ -23,7 +23,8 @@
 						image: getData_Common.getMedia_image(doc, 'medium'),
 						no_image: doc.value === undefined ? true : false,
 						img_id: doc.id,
-						url: this.getDetailUrl(doc)
+						url: this.getDetailUrl(doc),
+            type: this.getFileExt(doc)
 						
 					},
 					
@@ -53,13 +54,18 @@
 			return doc.id.split('/').pop(); 
 		};
     
-		this.getDetailUrl = function(doc){									
-			var model = {};
-			model.q = doc.id;
-			model.view = 'detail';
-			model.lang = smkCommon.getCurrentLanguage();
-
-			return ModelManager.buildURLFromModel(model); 
+    this.getFileExt = function(doc){									
+		  if(doc.id === undefined || doc.id == null)
+        return null;      
+       			
+			return doc.id.split('.').pop(); 
+		};
+    
+		this.getDetailUrl = function(doc){
+      var docAPI = 'http://csdev-seb-02:4000/download/doc%s';												
+			var url = sprintf(docAPI, doc.id);
+			
+			return url; 
 		};				
 		
 		this.getListAllProducers = function(doc){

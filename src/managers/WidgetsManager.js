@@ -225,7 +225,10 @@ var EventsManager;
       solrsource: 'doc_smk',	
 			initTemplate:'#teaserInitTemplate',
       dataHandler: getData_Teasers_Doc,
-      triggerId: "smk_teasers_all_doc_loaded"
+      triggerId: "smk_teasers_all_doc_loaded",
+      onClickLink: function (event) {
+    			window.location.href(event.data.detail_url);    			
+    		}		
 		}));
 		
     /*

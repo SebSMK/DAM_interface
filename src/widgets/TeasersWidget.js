@@ -7,7 +7,18 @@
 			AjaxSolr.extend(this, {
 				initTemplate: null,
         dataHandler: null,
-        triggerId: null 
+        triggerId: null,
+        
+        onClickLink: function (event) {
+    			event.preventDefault();
+    			$(event.data.caller).trigger({
+    				type: "smk_search_call_detail",
+    				detail_url: event.data.detail_url, 
+            samewin:true
+    			});
+    
+    			return;
+    		}		 
         
 			}, attributes);
 		},
@@ -195,18 +206,7 @@
 			self.scrollUpdateWidget.start_scroll_preload_request(true);
 			
 			return true;			
-		},
-
-		onClickLink: function (event) {
-			event.preventDefault();
-			$(event.data.caller).trigger({
-				type: "smk_search_call_detail",
-				detail_url: event.data.detail_url, 
-        samewin:true
-			});
-
-			return;
-		},		
+		},	
 
 		/*
 		 * PRIVATE FUNCTIONS

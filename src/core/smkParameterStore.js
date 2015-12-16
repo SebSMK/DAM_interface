@@ -105,7 +105,7 @@
         
         proxystring: function () {          
           return this.get('q').value == this.q_default ? '*' : this.get('q').value;
-        },
+        },                
 
 				/******************************
 				 * PRIVATE FUNCTIONS

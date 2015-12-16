@@ -35,7 +35,7 @@
 					//options = {dataType: 'html'};
 					prev_string = this.store.storedString();
 					//string = string || this.store.string();
-          string = this.store.proxystring();
+          string = this.store.string();
 					handler = handler || function (data) {
 						self.handleResponse(data);
 					};   
@@ -46,7 +46,7 @@
 						//options.url = this.proxyUrl + '?wt=json';
             //options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json&json.wrf=?';
             //options.url = this.proxyUrl + this.solrUrl + '?' +  string + '&wt=json'; //&json.wrf=?';
-            var proxy_path =  ModelManager.get_view() != null ? '/dam/foto/' : '/dam/search/';  
+            var proxy_path =  ModelManager.get_view() != null ? '/dam/foto/?' : '/dam/search/?';  
             
             options.url = this.proxyUrl + proxy_path + string; 
             options.dataType = 'jsonp';           

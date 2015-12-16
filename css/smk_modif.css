@@ -1,5 +1,30 @@
 @CHARSET "ISO-8859-1";
 
+
+.doc-doc i, .doc-docx i {         
+    background-image: url(../images/Word.png);    
+    background-size: 50px;    
+    background-position: 0px;
+}
+
+.doc-xls i, .doc-xlsx i {         
+    background-image: url(../images/Excel.png);    
+    background-size: 50px;    
+    background-position: 0px;
+}
+
+.doc-ppt i, .doc-pptx i {         
+    background-image: url(../images/PowerPoint.png);    
+    background-size: 50px;    
+    background-position: 0px;
+}
+
+.doc-pdf i {         
+    background-image: url(../images/Pdf.png);    
+    background-size: 50px;    
+    background-position: 0px;
+}
+    
 .matrix {
     margin: 50px -15px 0;
 }
