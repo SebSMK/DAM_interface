@@ -103,7 +103,7 @@
 		init_typeahead: function(){
 			var self = this;
 			var dropdown_list = self.init_bloodhound();
-			dropdown_list.initialize();
+			//dropdown_list.initialize();
 
 			$(self.target).find('input.search-bar-field').typeahead({
 				hint: false,
@@ -125,7 +125,7 @@
 			var self = this;
 			self.list = [];
 
-			var proxyurl = this.get_proxy_url_ng();
+			var proxyurl = this.get_proxy_url_ng();      
 
 			return new Bloodhound({
 				datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.value); },

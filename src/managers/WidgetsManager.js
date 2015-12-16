@@ -227,7 +227,16 @@ var EventsManager;
       dataHandler: getData_Teasers_Doc,
       triggerId: "smk_teasers_all_doc_loaded",
       onClickLink: function (event) {
-    			window.location.href(event.data.detail_url);    			
+          event.preventDefault();
+          if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1){
+            // if chrome
+            var url = event.data.detail_url; 
+            window.open(url, '_blank');
+          }
+          else{
+            // other browsers
+            document.getElementById('download_iframe').src = event.data.detail_url;
+          }		
     		}		
 		}));
 		

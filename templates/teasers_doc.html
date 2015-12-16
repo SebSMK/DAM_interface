@@ -18,11 +18,11 @@
 
 		<!-- matrix-tile-inner -->
 		<div class="matrix-tile-inner">
-
+      <iframe id="download_iframe" style="display:none;"></iframe>
 			{{#media}}
 			<!-- matrix-image -->
 			<div class="matrix-tile-image {{#no_image}}matrix-tile-image-missing doc-{{type}}{{/no_image}}" {{#image}}src="{{image}}" img_id="{{img_id}}"{{/image}}>
-
+        
 				<i></i>
 				<!-- invisible link - make the whole div container clickable -->
 				<a class="divLink" href="{{url}}">&nbsp;</a>				
